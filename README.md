@@ -81,7 +81,7 @@ The transient problem is solved using the **implicit Euler method** with:
 
 The temperature field is updated at each time step to visualize the propagation of heat through the water, pipe and concrete.
 
-![Transient temperature simulation](images/temperature-animation.gif)
+![Transient temperature simulation](images/temperature_animation.gif)
 
 ## Implementation
 
