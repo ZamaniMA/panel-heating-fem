@@ -30,9 +30,9 @@ The U-shaped pipe and surrounding concrete are constructed as separate computati
 
 Periodic boundary conditions are used to represent the effect of neighbouring sections of the heating system.
 
-![Geometrical regions](Geometrical%20regions.png)
+![Geometrical regions](images/geometrical-regions.png)
 
-![Velocity mesh](Velocity%20Mesh.png)
+![Velocity mesh](images/velocity-mesh.png)
 
 ### 2. Fluid-Flow Model
 
@@ -42,11 +42,11 @@ The pressure field is obtained by solving the corresponding FEM problem. The vel
 
 The model uses prescribed inlet and outlet pressures and water viscosity as the main flow parameters.
 
-![Fluid-flow boundary conditions](Boundary%20conditions.png)
+![Fluid-flow boundary conditions](images/boundary-conditions.png)
 
-![Pressure distribution](Pressure.png)
+![Pressure distribution](images/pressure.png)
 
-![Velocity field](Velocity.png)
+![Velocity field](images/velocity.png)
 
 ### 3. Heat-Transfer Model
 
@@ -62,11 +62,11 @@ Different thermal properties are assigned to each material:
 
 The velocity field obtained from the fluid-flow calculation is used in the convection term of the thermal model.
 
-![Temperature boundary conditions](Boundary%20Conditions%20for%20the%20temperature%20problem.png)
+![Temperature boundary conditions](images/thermal-boundary-conditions.png)
 
-![Temperature mesh](Temperature%20Mesh.png)
+![Temperature mesh](images/temperature-mesh.png)
 
-![Temperature distribution](3D%20Distribution%20of%20the%20Temperature.png)
+![Temperature distribution](images/temperature-distribution.png)
 
 ### 4. Transient Simulation
 
@@ -81,7 +81,7 @@ The transient problem is solved using the **implicit Euler method** with:
 
 The temperature field is updated at each time step to visualize the propagation of heat through the water, pipe and concrete.
 
-![Transient temperature simulation](temperature_animation.gif)
+![Transient temperature simulation](images/temperature-animation.gif)
 
 ## Implementation
 
