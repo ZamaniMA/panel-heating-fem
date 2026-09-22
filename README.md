@@ -6,7 +6,7 @@ MATLAB-based numerical simulation of an underfloor heating system, developed as 
 
 The project models a section of an underfloor heating system consisting of a **U-shaped PEX pipe embedded in a concrete floor**. The numerical model combines fluid-flow and heat-transfer analysis to study the temperature distribution in the system and its evolution over time.
 
-The project focuses on the numerical modelling of:
+The project focuses on:
 
 * Water flow through the embedded pipe
 * Heat transfer between water, PEX and concrete
@@ -28,19 +28,25 @@ The computational domain is discretized using the **Finite Element Method (FEM)*
 
 The U-shaped pipe and surrounding concrete are constructed as separate computational regions. A 2D finite-element mesh is then generated for the complete domain.
 
-The model uses a periodic boundary condition to represent the effect of neighbouring sections of the heating system.
+Periodic boundary conditions are used to represent the effect of neighbouring sections of the heating system.
 
-![Computational Geometry](images/geometry.png)
+![Geometrical regions](Geometrical%20regions.png)
+
+![Velocity mesh](Velocity%20Mesh.png)
 
 ### 2. Fluid-Flow Model
 
 The water flow is modelled assuming **steady Stokes flow**.
 
-The pressure field is obtained by solving the corresponding FEM problem, after which the velocity field is calculated from the pressure gradient.
+The pressure field is obtained by solving the corresponding FEM problem. The velocity field is then calculated from the pressure gradient.
 
 The model uses prescribed inlet and outlet pressures and water viscosity as the main flow parameters.
 
-![Velocity Field](images/velocity.png)
+![Fluid-flow boundary conditions](Boundary%20conditions.png)
+
+![Pressure distribution](Pressure.png)
+
+![Velocity field](Velocity.png)
 
 ### 3. Heat-Transfer Model
 
@@ -54,13 +60,17 @@ Different thermal properties are assigned to each material:
 | PEX      |         0.35 W/(m·K) |  945 kg/m³ | 2300 J/(kg·K) |
 | Concrete |         2.00 W/(m·K) | 2200 kg/m³ |  840 J/(kg·K) |
 
-The velocity field obtained from the fluid-flow calculation is coupled to the thermal model through the convection term.
+The velocity field obtained from the fluid-flow calculation is used in the convection term of the thermal model.
 
-![Temperature Distribution](images/temperature.png)
+![Temperature boundary conditions](Boundary%20Conditions%20for%20the%20temperature%20problem.png)
+
+![Temperature mesh](Temperature%20Mesh.png)
+
+![Temperature distribution](3D%20Distribution%20of%20the%20Temperature.png)
 
 ### 4. Transient Simulation
 
-After obtaining the stationary temperature field, a transient simulation is performed to investigate the temperature evolution of the system.
+After solving the stationary thermal problem, a transient simulation is performed to investigate the temperature evolution of the system during start-up.
 
 The transient problem is solved using the **implicit Euler method** with:
 
@@ -71,7 +81,7 @@ The transient problem is solved using the **implicit Euler method** with:
 
 The temperature field is updated at each time step to visualize the propagation of heat through the water, pipe and concrete.
 
-![Transient Simulation](images/transient.gif)
+![Transient temperature simulation](temperature_animation.gif)
 
 ## Implementation
 
@@ -105,16 +115,16 @@ Visualize results
 
 ## Results
 
-The simulation produces visualizations of:
+The simulation generates visualizations of:
 
-* Computational geometry
-* Finite-element mesh
+* Computational geometry and finite-element mesh
+* Fluid-flow boundary conditions
 * Pressure distribution
 * Water velocity field
+* Thermal boundary conditions
+* Temperature mesh
 * Stationary temperature distribution
 * Transient temperature evolution
-
-These results provide a numerical representation of the interaction between the fluid flow and heat transfer within the embedded heating system.
 
 ## Technologies & Methods
 
